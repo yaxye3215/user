@@ -15,6 +15,13 @@ app.get('/', async(req, res)=>{
     res.json(userfind)
 });
 
+app.get('/:id', async(req, res)=>{
+    const {id}= req.params;
+    const user = await User.findById(id)
+
+    res.json(user)
+});
+
 app.post('/', async(req, res)=>{
     const {name, email , password} = req.body
     const user = new User({
