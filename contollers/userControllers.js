@@ -33,10 +33,18 @@ export const login= async(req, res)=>{
     if (user) {
         res.json(user);
     }
-    
+
 }
 export const deleteuser = async(req, res)=>{
     const {id} = req.params
     const user = await User.findByIdAndDelete(id)
     res.json({messige : 'succusfull delede'})
+}
+
+export const oneUser =async(req, res)=>{
+    const {id} = req.params
+    const userfind = await User.findById(id)
+
+    res.json(userfind)
+
 }
